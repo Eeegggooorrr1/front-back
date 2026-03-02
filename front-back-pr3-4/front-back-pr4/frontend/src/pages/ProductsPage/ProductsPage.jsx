@@ -77,8 +77,7 @@ export default function ProductsPage() {
     <div className="page">
       <header className="header">
         <div className="header__inner">
-          <div className="brand">Products App</div>
-          <div className="header__right">React</div>
+          <div className="brand">Товары</div>
         </div>
       </header>
       <main className="main">
@@ -93,7 +92,7 @@ export default function ProductsPage() {
         </div>
       </main>
       <footer className="footer">
-        <div className="footer__inner">© {new Date().getFullYear()} Products App</div>
+        <div className="footer__inner">© {new Date().getFullYear()} Товары</div>
       </footer>
       <ProductModal open={modalOpen} mode={modalMode} initialProduct={editingProduct} onClose={closeModal} onSubmit={handleSubmit} />
     </div>
