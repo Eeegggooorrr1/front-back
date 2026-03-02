@@ -5,6 +5,8 @@ const ProductService = require('./products/service');
 const controller = require('./products/controllers');
 const routes = require('./products/routes');
 
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 const port = 3000;
 
@@ -40,6 +42,25 @@ app.use((req, res, next) => {
   });
   next();
 });
+
+
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Products API',
+      version: '1.0.0',
+      description: 'API для управления товарами (products)'
+    },
+    servers: [
+      { url: `http://localhost:${port}`, description: 'Локальный сервер' }
+    ]
+  },
+  apis: ['./products/routes.js']
+};
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api', routes);
 
