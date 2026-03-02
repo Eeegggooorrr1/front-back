@@ -50,7 +50,7 @@ const swaggerOptions = {
     info: {
       title: 'Products API',
       version: '1.0.0',
-      description: 'API для управления товарами (products)'
+      description: 'API для управления товарами'
     },
     servers: [
       { url: `http://localhost:${port}`, description: 'Локальный сервер' }
